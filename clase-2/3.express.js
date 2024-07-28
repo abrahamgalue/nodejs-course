@@ -30,6 +30,11 @@ app.post('/pokemon', (req, res) => {
   })
 })
 
+// La ul9tima a la que va a llegar
+app.use((req, res) => {
+  res.status(404).send('<h1>404<h1/>')
+})
+
 app.listen(PORT, () => {
   console.log(`listening on port http://localhost:${PORT}`)
 })
