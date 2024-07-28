@@ -2,11 +2,7 @@
   "name": "js",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:1": "node --watch .\\clase-2\\1.http.js",
-    "dev:2": "node --watch .\\clase-2\\2.routing.js"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
