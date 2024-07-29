@@ -1,2 +1,5 @@
 ### Recuperar todas las peliculas
 GET http://localhost:1234/movies
+
+### Recuperar las peliculas de un determinado genero
+GET http://localhost:1234/movies?genre=action
