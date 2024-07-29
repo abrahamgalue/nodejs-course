@@ -6,3 +6,19 @@ GET http://localhost:1234/movies/1
 
 ### Recuperar las peliculas de un determinado genero
 GET http://localhost:1234/movies?genre=action
+
+### Crear una pelicula con POST
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+  "title": "The Godfather",
+  "year": 1975,
+  "director": "Francis Ford Coppola",
+  "duration": 175,
+  "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
+  "genre": [
+    "Crime",
+    "Drama"
+  ]
+}
