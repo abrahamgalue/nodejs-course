@@ -1,6 +1,7 @@
 const express = require('express')
 const crypto = require('node:crypto')
 const movies = require('./movies.json')
+const { validateMovie } = require('./schemas/movies')
 
 const app = express()
 app.use(express.json())
@@ -31,25 +32,17 @@ app.get('/movies/:id', (req, res) => {
 })
 
 app.post('/movies', (req, res) => {
-  const {
-    title,
-    genre,
-    year,
-    director,
-    duration,
-    rate,
-    poster
-  } = req.body
+  const result = validateMovie(req.body)
 
+  if (!result.success) {
+    // 422 Unprocessable Entity
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+
+  // en base de datos
   const newMovie = {
     id: crypto.randomUUID(), // uuid v4
-    title,
-    genre,
-    year,
-    director,
-    duration,
-    rate: rate ?? 0,
-    poster
+    ...result.data // ❌ req.body
   }
 
   // Esto no seria REST, porque estamos guardando
