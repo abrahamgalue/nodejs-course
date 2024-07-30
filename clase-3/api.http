@@ -22,3 +22,11 @@ Content-Type: application/json
     "Drama"
   ]
 }
+
+### Actualizar parcialmente una pelicula
+PATCH http://localhost:1234/movies/c906673b-3948-4402-ac7f-73ac3a9e3105
+Content-Type: application/json
+
+{
+  "year": 2004
+}
