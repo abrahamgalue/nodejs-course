@@ -40,7 +40,17 @@ export class MovieModel {
   }
 
   static async getById ({ id }) {
+    try {
+      const [movie] = await connection.query(
+        'SELECT BIN_TO_UUID(id) id, title, year, director, duration, poster, rate FROM movie WHERE id = UUID_TO_BIN(?);',
+        [id])
 
+      if (movie.length === 0) return null
+
+      return movie[0]
+    } catch (e) {
+      return null
+    }
   }
 
   static async create ({ input }) {
