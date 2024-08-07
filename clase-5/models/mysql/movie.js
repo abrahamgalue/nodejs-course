@@ -91,6 +91,27 @@ export class MovieModel {
   }
 
   static async update ({ id, input }) {
+    let sentence = ''
+    try {
+      const keys = Object.keys(input)
 
+      sentence = keys.map(key => `${key} = '${input[key]}'`).join(', ')
+    } catch (e) {
+      return false
+    }
+
+    try {
+      await connection.query(`UPDATE movie SET ${sentence} WHERE id = UUID_TO_BIN(?)`, [id])
+    } catch (e) {
+      return false
+    }
+
+    const [movie] = await connection.query(
+      'SELECT BIN_TO_UUID(id) id, title, year, director, duration, poster, rate FROM movie WHERE id = UUID_TO_BIN(?);',
+      [id])
+
+    if (movie.length === 0) return false
+
+    return movie[0]
   }
 }
