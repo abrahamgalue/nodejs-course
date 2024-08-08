@@ -2,7 +2,6 @@
   "name": "clase-3",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +14,8 @@
     "express": "4.19.2",
     "mongodb": "6.8.0",
     "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.1.0"
   }
 }

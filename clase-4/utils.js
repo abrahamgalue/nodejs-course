@@ -5,6 +5,15 @@
 // import fs from 'node:fs'
 // const movies = JSON.parse(fs.readFileSync('./movies.json', 'utf-8'))
 
-import { createRequire } from 'node:module'
-const require = createRequire(import.meta.url)
-export const readJSON = path => require(path)
+// Cargar el módulo 'fs' para leer archivos del sistema
+const fs = require('fs')
+
+// Función para leer y parsear un archivo JSON
+const readJSON = path => {
+  return JSON.parse(fs.readFileSync(path, 'utf-8'))
+}
+
+// Exportar la función
+module.exports = {
+  readJSON
+}

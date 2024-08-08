@@ -1,7 +1,7 @@
-import { MovieModel } from '../models/local-file-system/movie.js'
-import { validateMovie, validatePartialMovie } from '../schemas/movies.js'
+const { MovieModel } = require('../models/local-file-system/movie.js')
+const { validateMovie, validatePartialMovie } = require('../schemas/movies.js')
 
-export class MovieController {
+class MovieController {
   static async getAll (req, res) {
     const { genre } = req.query
 
@@ -62,3 +62,5 @@ export class MovieController {
     res.json(updatedMovie)
   }
 }
+
+module.exports = { MovieController }

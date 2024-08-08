@@ -1,9 +1,8 @@
-import { readJSON } from '../../utils.js'
-import { randomUUID } from 'node:crypto'
+const { randomUUID } = require('node:crypto')
 
-const movies = readJSON('./movies.json')
+const movies = require('../../movies.json')
 
-export class MovieModel {
+class MovieModel {
   static async getAll ({ genre }) {
     if (genre) {
       const filteredMovies = movies.filter(movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase()))
@@ -56,3 +55,5 @@ export class MovieModel {
     return movies[movieIndex]
   }
 }
+
+module.exports = { MovieModel }

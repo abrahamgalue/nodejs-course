@@ -8,7 +8,7 @@ GET http://localhost:7777/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 GET http://localhost:7777/movies?genre=action
 
 ### Borrar una pelicula por id
-DELETE http://localhost:7777/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+DELETE http://localhost:7777/movies/b020e378-6e1a-498c-8740-feae706cf72c
 
 ### Crear una pelicula con POST
 POST http://localhost:7777/movies
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ### Actualizar parcialmente una pelicula
-PATCH http://localhost:7777/movies/c906673b-3948-4402-ac7f-73ac3a9e3105
+PATCH http://localhost:7777/movies/b020e378-6e1a-498c-8740-feae706cf72c
 Content-Type: application/json
 
 {

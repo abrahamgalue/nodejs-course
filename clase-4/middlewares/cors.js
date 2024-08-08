@@ -1,4 +1,4 @@
-import cors from 'cors'
+const cors = require('cors')
 
 const ACCEPTED_ORIGINS = [
   'http://localhost:1234',
@@ -29,7 +29,7 @@ app.options('/movies/:id', (req, res) => {
 })
 */
 
-export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => cors({
+const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => cors({
   origin: (origin, callback) => {
     if (acceptedOrigins.indexOf(origin) !== -1) {
       return callback(null, true)
@@ -43,3 +43,7 @@ export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => c
   }
 }
 )
+
+module.exports = {
+  corsMiddleware
+}
