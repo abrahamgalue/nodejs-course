@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat en tiempo real con Web Sockets - @abrahamgalue</title>
 
+  <script type="module">
+    import { io } from 'https://cdn.socket.io/4.7.5/socket.io.esm.min.js'
+
+    const socket = io()
+  </script>
+
   <style>
     *,
     *::before,
