@@ -5,7 +5,7 @@ const port = process.env.PORT ?? 3000
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send('<h1>Chat en tiempo real</h1>')
+  res.sendFile(process.cwd() + '/client/index.html')
 })
 
 app.listen(port, () => {
