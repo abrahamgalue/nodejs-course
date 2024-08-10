@@ -9,8 +9,22 @@
   <script type="module">
     import { io } from 'https://cdn.socket.io/4.7.5/socket.io.esm.min.js'
 
+    const getUserName = async () => {
+      const username = localStorage.getItem('username')
+      if (username) {
+        return username
+      }
+
+      const res = await fetch('https://random-data-api.com/api/v2/users/random_user')
+      const { username: randomUsername } = await res.json()
+
+      localStorage.setItem('username', randomUsername)
+      return randomUsername
+    }
+
     const socket = io({
       auth: {
+        username: await getUserName(),
         serverOffset: 0
       }
     })
@@ -19,8 +33,11 @@
     const input = document.getElementById('input')
     const messages = document.getElementById('messages')
 
-    socket.on('chat message', (msg, serverOffset) => {
-      const item = `<li>${msg}</li>`
+    socket.on('chat message', (msg, serverOffset, username) => {
+      const item = `<li>
+        <p>${msg}</p>
+        <small>${username}</small>
+      </li>`
       messages.insertAdjacentHTML('beforeend', item)
       socket.auth.serverOffset = serverOffset
     })
