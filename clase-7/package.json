@@ -12,12 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "db-local": "^3.1.0",
     "express": "4.19.2"
   },
   "devDependencies": {
     "standard": "17.1.0"
-  },
-  "eslintConfig": {
-    "extends": "standard"
   }
 }
