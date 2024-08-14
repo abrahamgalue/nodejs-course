@@ -12,11 +12,11 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
 })
 
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
   const { username, password } = req.body
 
   try {
-    const id = UserRepository.create({ username, password })
+    const id = await UserRepository.create({ username, password })
     res.send({ id })
   } catch (e) {
     res.status(400).send(e.message)
