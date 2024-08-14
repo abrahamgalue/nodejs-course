@@ -9,7 +9,15 @@ app.get('/', (req, res) => {
   res.send('<h1>Hola Abraham nodejs</h1>')
 })
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body
+
+  try {
+    const user = await UserRepository.login({ username, password })
+    res.send({ user })
+  } catch (e) {
+    res.status(401).send(e.message)
+  }
 })
 
 app.post('/register', async (req, res) => {
