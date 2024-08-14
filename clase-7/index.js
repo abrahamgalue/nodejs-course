@@ -61,7 +61,7 @@ app.post('/register', async (req, res) => {
 })
 
 app.post('/logout', (req, res) => {
-
+  res.clearCookie('access_token').json({ message: 'Logout successful' })
 })
 
 app.get('/protected', (req, res) => {
