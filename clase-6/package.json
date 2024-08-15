@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch .\\server\\index.js",
+    "dev:linux": "node --watch ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
