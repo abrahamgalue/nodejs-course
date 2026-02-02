@@ -15,8 +15,9 @@
         return username
       }
 
-      const res = await fetch('https://random-data-api.com/api/v2/users/random_user')
-      const { username: randomUsername } = await res.json()
+      const res = await fetch('https://randomuser.me/api/')
+      const { results: [{ name: { first, last } }] } = await res.json()
+      const randomUsername = `${first} ${last}`
 
       localStorage.setItem('username', randomUsername)
       return randomUsername
