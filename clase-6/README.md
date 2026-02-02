@@ -69,3 +69,7 @@ server listening on port http://localhost:3000
 ```
 
 Entra a la url y podrás utilizar el proyecto.
+
+## Base de datos (Turso)
+
+Para configurar y ejecutar la base de datos, consulta la guía oficial: https://docs.turso.tech/quickstart
